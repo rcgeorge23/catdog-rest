@@ -1,6 +1,7 @@
 package uk.co.novinet.catdog.rest;
 
 import com.novinet.catdog.ClassificationService;
+import org.apache.log4j.Logger;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +16,13 @@ import static org.springframework.http.HttpStatus.OK;
 
 @RestController("/classify")
 public class ClassificationController {
+
+    private final static Logger LOGGER = Logger.getLogger(ClassificationController.class);
+
     @PostMapping
     public ResponseEntity<?> classify(@RequestParam(value="image") MultipartFile multipartFile) {
+        LOGGER.info("Request received...");
+
         if (multipartFile.isEmpty()) {
             return new ResponseEntity("please select a file!", OK);
         }
