@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cat and dog image classification</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+    <form action="/classify" method="post" enctype="multipart/form-data">
+        Image: <input name="image" type="file" accept="image/*" />
+        <input type="submit" value="Submit">
+    </form>
+    </body>
+</html>
